@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class SolicitudSugerencia(BaseModel):
     query: str = Field(
-        ..., min_lenght=1, description="Consulta Realizada por el Usuario"
+        ..., min_length=1, description="Consulta Realizada por el Usuario"
     )
 
 
