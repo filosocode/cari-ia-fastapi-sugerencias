@@ -1,6 +1,6 @@
 # Cari IA - Sistema de Sugerencias Automaticas
 
-##Resumen
+## Resumen
 
 **Cari IA** es una API REST desarrollada con **FastApi** que permite a asesores de atencion al cliente recibir **sugerencias automaticas** basadas en una base de preguntas frecuentes mientras responden consultas de usuarios.
 
