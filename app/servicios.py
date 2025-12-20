@@ -4,7 +4,7 @@ from difflib import get_close_matches
 from app.conocimiento import BaseConocimiento
 
 
-class ServicioSugerencia:
+class ServicioSugerencias:
     def __init__(self, base_conocimiento: BaseConocimiento):
         self.base_conocimiento = base_conocimiento
 
