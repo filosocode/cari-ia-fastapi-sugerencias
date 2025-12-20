@@ -44,12 +44,13 @@ Estas exclusiones son **decisiones conscientes**, alineadas con el alcance de la
 
 ---
 
-##Arquietectura General
+## Arquietectura General
 
 La aplicacion sigue una arquitectura modular y simple, alineada con el alcance de la prueba tecnica y orientada a facilitar la lectura, el mantenimiento y las pruebas.
 
 La estrcutura del proyecto se organiza de la siguiente manera:
 
+```text
 app/
 ├── main.py # Punto de entrada de la aplicación y definición de endpoints
 ├── modelos.py # Modelos de datos y validaciones (Pydantic)
@@ -61,6 +62,7 @@ tests/
 ├── test_historial.py # Pruebas del endpoint /history
 requirements.txt
 README.md
+```
 
 ### Principios Aplicados
 
