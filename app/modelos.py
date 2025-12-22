@@ -24,8 +24,14 @@ class RespuestaSugerencia(BaseModel):
 
 class EntradaConocimiento(BaseModel):
     pregunta: str = Field(
-        ..., min_length=1, description="Pregunta a agregar a la base de conocimiento"
+        ...,
+        min_length=1,
+        description="Pregunta a agregar a la base de conocimiento",
+        examples=["¿Cómo contacto soporte?"],
     )
     respuesta: str = Field(
-        ..., min_length=1, description="Respuesta asociada a la pregunta"
+        ...,
+        min_length=1,
+        description="Respuesta asociada a la pregunta",
+        examples=["Puedes escribir a soporte@cari.com"],
     )

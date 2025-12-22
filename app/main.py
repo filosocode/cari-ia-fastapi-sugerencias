@@ -43,7 +43,12 @@ servicio_sugerencias = ServicioSugerencias(base_conocimiento)
 )
 def sugerir_respuesta(
     solicitud: SolicitudSugerencia = Body(
-        example={"query": "¿Cómo cambio mi contraseña?"}
+        examples={
+            "ejemplo_basico": {
+                "summary": "Consulta valida",
+                "value": {"query": "¿Cómo cambio mi contraseña?"},
+            }
+        }
     ),
 ):
     sugerencia = servicio_sugerencias.generar_sugerencia(solicitud.query)
@@ -71,7 +76,7 @@ def obtener_historial():
 )
 def agregar_conocimiento(
     entrada: EntradaConocimiento = Body(
-        example={
+        examples={
             "pregunta": "¿Como contacto soporte?",
             "respuesta": "Puedes escribir a soporte@cari.com",
         }

@@ -167,16 +167,28 @@ El objetivo de las pruebas es garantizar el correcto funcionamiento del sistema 
 
 ---
 
-## Instalacion
+## Instalación
+
+El proyecto puede ejecutarse de **dos maneras distintas**, según el entorno y las necesidades del evaluador:
+
+1. **Ejecución local**, utilizando un entorno virtual de Python (`venv`), recomendada para desarrollo y ejecución de pruebas.
+2. **Ejecución con Docker**, recomendada para una ejecución aislada y reproducible, sin necesidad de instalar Python ni dependencias de forma local.
+
+A continuación se detalla la **ejecución local**.  
+La ejecución con Docker se describe en una sección independiente.
+
+---
+
+## Instalación y Ejecución Local (sin Docker)
 
 ### Requisitos Previos
 
 - Python 3.10 o superior
 - pip
 
-### Pasos de Instalacion
+---
 
-### 1. Clonar el repositorio:
+### 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/filosocode/cari-ia-fastapi-sugerencias.git
@@ -217,6 +229,65 @@ La API estara disponible en:
 - ReDoc: http://127.0.0.1:8000/redoc
 
 ---
+
+## Ejecución con Docker
+
+La aplicacion puede ejecutarse utilizando **Docker**, lo que permite levantar la API en un entorno aislado y reproducible, sin necesidad de instalar Python ni dependencias en el sistema local.
+
+Esta modalidad esta orientada a la **ejecución de la aplicacion**, no al entorno de desarrollo.
+
+---
+
+### Requisitos
+
+- Docker Desktop (Windows / macOS) o Docker Engine (Linux)
+- Docker en ejecucion
+
+---
+
+### 1. Construcción de la imagen
+
+Desde la **raíz del proyecto**, ejecutar:
+
+```bash
+docker build -t cari-ia-api .
+```
+
+Este comando construye la imagen Docker de la aplicacion e instala todas las dependencias necesarias dentro del contenedor.
+
+---
+
+### 2. Ejecucion del contenedor
+
+Una vez construida la imagen ejecutamos:
+
+```bash
+docker run -p 8000:8000 cari-ia-api
+```
+
+La API estara disponible en:
+
+- http://localhost:8000
+- Swagger UI: http://localhost:8000/docs
+- http://localhost:8000/redoc
+
+---
+
+### 3. Detener la aplicacion
+
+Para detener el contenedor en ejecucion, precionar:
+
+```bash
+CTRL + C
+
+```
+
+### Notas
+
+- Al ejecutar la aplicación con Docker no es necesario crear ni activar un entorno virtual (venv).
+- La aplicación se ejecuta completamente dentro del contenedor.
+- La persistencia del historial es en memoria, por lo que la información se pierde al detener el contenedor, en coherencia con el alcance de la prueba técnica.
+- Las pruebas automatizadas se ejecutan en entorno local, dentro del entorno virtual de Python (`venv`), utilizando `pytest`.
 
 ## Endpoints Disponibles
 
@@ -317,7 +388,18 @@ Ejecutar:
 pytest
 ```
 
-Las pruebas validan el comportamiento correcto de los endpoints y las validaciones de entrada.
+Las pruebas automatizadas se implementan utilizando **pytest** y validan el
+comportamiento esencial de la API.
+
+#### Las pruebas cubren:
+
+- Respuestas exitosas del endpoint POST /suggest
+- Validaciones de entrada (por ejemplo, consultas vacías)
+- Correcto funcionamiento del endpoint GET /history
+- Estructura y tipo de los datos devueltos en las respuestas
+
+El objetivo de las pruebas es garantizar la estabilidad del sistema y demostrar
+buenas prácticas básicas de testing en una API REST.
 
 ---
 
