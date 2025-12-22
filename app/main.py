@@ -64,14 +64,20 @@ def obtener_historial():
 @app.post(
     "/knowledge",
     tags=["Conocimiento"],
-    summary="Agregar Conocimiento",
+    summary="Agregar conocimiento",
     description=(
         "Agrega una nueva pregunta y respuesta a la base de conocimiento en memoria."
     ),
 )
-def agregar_conocimiento(entrada: EntradaConocimiento):
+def agregar_conocimiento(
+    entrada: EntradaConocimiento = Body(
+        example={
+            "pregunta": "¿Como contacto soporte?",
+            "respuesta": "Puedes escribir a soporte@cari.com",
+        }
+    )
+):
     base_conocimiento.agregar(entrada.pregunta, entrada.respuesta)
-
     return {"mensaje": "Conocimiento agregado correctamente"}
 
 
