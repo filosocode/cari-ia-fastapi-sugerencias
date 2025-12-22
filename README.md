@@ -2,10 +2,10 @@
 
 ## Resumen
 
-**Cari IA** es una API REST desarrollada con **FastApi** que permite a asesores de atencion al cliente recibir **sugerencias automaticas** basadas en una base de preguntas frecuentes mientras responden consultas de usuarios.
+**Cari IA** es una **API REST** desarrollada con **FastApi** que permite a asesores de atencion al cliente recibir **sugerencias automaticas** basadas en una base de preguntas frecuentes mientras responden consultas de usuarios.
 
 El sistema recibe una consulta en lenguaje natural y devuelve una sugerencia relevante, utilizando una logica de similitud de texto simple.
-La solucion esta diseñada como una **prueba tecnica funcional**, priorizando claridad, correcta arquitectura y cumplimiento estrcito de los requerimientos establecidos.
+La solucion esta diseñada como una **prueba tecnica funcional**, priorizando claridad, correcta arquitectura y cumplimiento estricto de los requerimientos establecidos.
 
 ---
 
@@ -18,20 +18,20 @@ Esto genera:
 - Posibles inconsistencias en la informacion entregada.
 - Aumento del tiempo de atencion por consulta
 
-El objetivo de esta rpueba tecnica es construir un sistema ligero que asita al asesor sugiriendo respuestas relevantes en tiempo real, sin introducir complejidad innecesaria ni dependencias externas, y demostrando buenas practicas de desarrollo backend con Python.
+El objetivo de esta prueba tecnica es construir un sistema ligero que asista al asesor sugiriendo respuestas relevantes en tiempo real, sin introducir complejidad innecesaria ni dependencias externas, y demostrando buenas practicas de desarrollo backend con Python.
 
 ## Alcance de la Solucion
 
 ### Funcionalidades Incluidas
 
-- API REST desarrollada con **FastApi**
-- Endpoint `POST /suggest` para generar sugerencias a partir de una consulta del usuario
-- Endpoint `GET /history` para consultar el historial de preguntas y respuestas generadas
-- Base de conocimiento predefinida almacenada en memoria(diccionario o archivo JSON)
-- Logica basica de similitud de texto para encontrar la pregunta mas cercana
-- Persistencia temporal del historial de consultas en memoria
-- Validaciones simples de entrada usando **Pydantic**
-- Pruebas unitarias basicas para cada endpoint
+- API REST desarrollada con **FastApi**.
+- Endpoint `POST /suggest` para generar sugerencias a partir de una consulta del usuario.
+- Endpoint `GET /history` para consultar el historial de preguntas y respuestas.generadas
+- Base de conocimiento predefinida en memoria como estructura de datos en Python.
+- Logica basica de similitud de texto para encontrar la pregunta mas cercana.
+- Persistencia temporal del historial de consultas en memoria.
+- Validaciones simples de entrada usando **Pydantic**.
+- Pruebas unitarias basicas para cada endpoint.
 
 ## Funcionalidades excluidas
 
@@ -44,29 +44,42 @@ Estas exclusiones son **decisiones conscientes**, alineadas con el alcance de la
 
 ---
 
-## Arquietectura General
+## Arquitectura General
 
 La aplicacion sigue una arquitectura modular y simple, alineada con el alcance de la prueba tecnica y orientada a facilitar la lectura, el mantenimiento y las pruebas.
 
-La estrcutura del proyecto se organiza de la siguiente manera:
+La estructura del proyecto se organiza de la siguiente manera:
 
 ```text
 app/
-├── main.py # Punto de entrada de la aplicación y definición de endpoints
-├── modelos.py # Modelos de datos y validaciones (Pydantic)
-├── conocimiento.py # Base de conocimiento predefinida
-├── servicios.py # Lógica de negocio (sugerencias y similitud)
-├── almacenamiento.py # Persistencia temporal del historial en memoria
+├── main.py              # Punto de entrada y definición de endpoints
+├── modelos.py           # Modelos de datos y validaciones (Pydantic)
+├── conocimiento.py      # Base de conocimiento predefinida en memoria
+├── servicios.py         # Lógica de negocio (sugerencias y similitud)
+├── almacenamiento.py    # Persistencia temporal del historial en memoria
 tests/
-├── test_sugerencias.py # Pruebas del endpoint /suggest
-├── test_historial.py # Pruebas del endpoint /history
+├── test_sugerencias.py  # Pruebas del endpoint /suggest
+├── test_historial.py    # Pruebas del endpoint /history
 requirements.txt
 README.md
+
 ```
+
+---
+
+## Tecnologias Utilizadas
+
+- FastApi
+- Pydantic
+- Uvicorn
+- difflib
+- pytest
+
+---
 
 ### Principios Aplicados
 
-- **Separaciond eresponsabilidades**: Cada modulo cumple una funcion clara y acotada.
+- **Separacion de responsabilidades**: Cada modulo cumple una funcion clara y acotada.
 - **Bajo Acoplamiento**: Los endpoints delegan la logica de negocio a servicios independientes.
 - **Simplicidad Intencional**: Se evita complejidad innecesaria que no aporta valor al problema y alcance planteado.
 
@@ -84,7 +97,7 @@ Permite:
 
 - Definir endpoints de forma clara y decalrativa
 - Validar datos de entrada mediante **Pydantic**
-- Generar documentacion automatica(OpenAPI)
+- Generar documentacion automatica **(OpenAPI)**
 - Facilitar la escritura de pruebas.
 
 Esta eleccion cumple directamente con los requerimientos de la prueba tecnica.
@@ -93,13 +106,13 @@ Esta eleccion cumple directamente con los requerimientos de la prueba tecnica.
 
 ### Base de Conocimiento en Memoria
 
-La base de preguntas frecuentes se mantiene en memoria, ya sea como un diccionario o estructura cargada desde un archivo JSON.
+La base de preguntas frecuentes se mantiene en memoria, definida directamente en el código como una estructura de datos en Python.
 
-Esta decision se toma porque:
+Esta decisión se toma porque:
 
 - La prueba no requiere persistencia permanente.
 - Reduce dependencias externas.
-- Simplifica la ejecucion y el despliegue del proyecto.
+- Simplifica la ejecución y el despliegue del proyecto.
 
 ---
 
@@ -119,7 +132,7 @@ En un entorno productivo, esta logica podria reemplazarse por tecnicas mas avanz
 
 ### Persistencia de Historial
 
-El historial de consultas y sugerencias se almacena en una estrcutura en memoria(por ejemplo, una lista de diccionarios).
+El historial de consultas y sugerencias se almacena en una estructura en memoria.
 
 Esta decision:
 
@@ -147,36 +160,142 @@ Se incluyen pruebas unitarias basicas para cada endpoint utilizando `pytest`.
 Las pruebas validan:
 
 - Codigos de estado HTTP.
-- Estrcutura del JSON de respuesta.
+- Estructura del JSON de respuesta.
 - Casos basicos de error.
 
 El objetivo de las pruebas es garantizar el correcto funcionamiento del sistema y demostrar buenas practicas de desarrollo backend.
 
 ---
 
-##Tecnologias Utilizadas  
-FastApi, Pydantic, difflib, pytest
+## Instalacion
 
-##Instalacion
-Pasos Claros y Reproducibles
+### Requisitos Previos
 
-##Ejecucion de la Aplicacion
-Comando exacto para levantar la Api
+- Python 3.10 o superior
+- pip
 
-##Endpoints Disponibles
+### Pasos de Instalacion
 
-- POST /suggest
-- GET /history
-- POST /knowledge
+### 1. Clonar el repositorio:
 
-##Pruebas
-Como ejecutarlas y que validadn
+```bash
+git clone https://github.com/filosocode/cari-ia-fastapi-sugerencias.git
+cd cari-ia-fastapi-sugerencias
 
-##Decisiones Tecnicas relevantes
-Aqui te luces
+```
 
-##Limitaciones Conocidas
-Demuestras Madurez
+### 2. Crear y activar un entorno virtual
 
-##Posibles Mejoras
-Vision de futuro sin prometer Humo
+```bash
+python -m venv venv
+source venv/bin/activate
+
+# En Windows:
+# venv\Scripts\activate
+```
+
+### 3. Instalar Dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Ejecucion de la Aplicacion
+
+Ejecutar el siguiente comando desde la raiz del proyecto:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+La API estara disponible en:
+
+- http://127.0.0.1:8000
+- Swagger UI: http://127.0.0.1:8000/docs
+- ReDoc: http://127.0.0.1:8000/redoc
+
+---
+
+## Endpoints Disponibles
+
+### POST /suggest
+
+Genera una sugerencia basada en la consulta del usuario.
+
+#### Entrada
+
+```json
+{
+  "query": "¿Cómo cambio mi contraseña?"
+}
+```
+
+#### Salida
+
+```json
+{
+  "suggestion": "Puedes cambiar tu contraseña en la sección de configuración de tu perfil."
+}
+```
+
+### GET /history
+
+Devuelve el historial completo de consultas procesadas.
+
+### POST /knowledge
+
+Permite agregar nuevas preguntas y respuestas a la base de conocimiento en memoria.
+
+#### Entrada
+
+```json
+{
+  "pregunta": "¿Cómo contacto soporte?",
+  "respuesta": "Puedes escribir a soporte@cari.com"
+}
+```
+
+## Pruebas
+
+Ejecutar:
+
+```bash
+pytest
+```
+
+Las pruebas validan el comportamiento correcto de los endpoints y las validaciones de entrada.
+
+---
+
+## Limitaciones Conocidas
+
+Este proyecto fue desarrollado como una **prueba tecnica**, por lo que presenta una serie de limitaciones que son **conscientes y aceptadas**, alineadas con el alcance y los objetivos planteados.
+
+- **Persistencia en memoria**
+  Toda la informacion (Base de conocimiento e historial de consultas)se almacena en memoria.
+  Al reiniciar la aplicacion los datos se pierden.
+
+- **Logica de similitud basica**
+  El sistema utiliza una comparacion simple de texto, sin comprension semantica ni contexto.
+  Preguntas formuladas de manera muy diferente pueden no generar coincidencias adecuadas.
+
+- **Ausencia de autenticacion y autorizacion**
+  No existe control de acceso a los endpoints.
+  Cualquier cliente puede consultar el historial o agregar conocimiento.
+
+- **Sin control de concurrencia**
+  El manejo de estado en memoria no contempla escenarios con multiples instancias o alta concurrencia.
+
+- **No orientado a produccion**
+  La aplicacion no incluye mecanismos de observabilidad, metricas, logging estructurado ni manejo avanzado de errores.
+
+Estas limitaciones no representan errores de diseño, sino **decisiones tecnicas deliberadas** para mantener el sistema simple, claro y enfocado en los requerimientos de la prueba.
+
+## Posibles Mejoras
+
+- Incorporar persistencia permanente de datos mediante una base de datos.
+- Implementar similitud semantica para mejorar la calidad de las sugerencias.
+- Agregar autenticacion y control de acceso a los endpoints.
+- Incluir metricas, logging y observabilidad.
