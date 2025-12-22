@@ -307,7 +307,7 @@ El conocimiento agregado puede ser utilizado inmediatamente por el endpoint **/s
 
 #### Response suggest
 
-![GET /knowledge](docs/images/swagger_post_knowledge_response.png)
+![GET /knowledge](docs/images/swagger_post_knowledge_response_suggest.png)
 
 ## Pruebas
 
