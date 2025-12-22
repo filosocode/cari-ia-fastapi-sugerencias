@@ -5,13 +5,20 @@ from pydantic import BaseModel, Field
 
 class SolicitudSugerencia(BaseModel):
     query: str = Field(
-        ..., min_length=1, description="Consulta Realizada por el Usuario"
+        ...,
+        min_length=1,
+        description="Consulta Realizada por el Usuario",
+        examples=["¿Cómo cambio mi contraseña?"],
     )
 
 
 class RespuestaSugerencia(BaseModel):
     suggestion: str = Field(
-        ..., description="Sugerencia Generada a partir de la base de conocimiento"
+        ...,
+        description="Sugerencia Generada a partir de la base de conocimiento",
+        examples=[
+            "Puedes cambiar tu contraseña en la sección de configuración de tu perfil."
+        ],
     )
 
 
