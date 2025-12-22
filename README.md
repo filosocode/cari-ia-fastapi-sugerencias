@@ -299,15 +299,15 @@ El conocimiento agregado puede ser utilizado inmediatamente por el endpoint **/s
 
 #### Execute
 
-![GET /history](docs/images/swagger_post_knowledge_execute.png)
+![GET /knowledge](docs/images/swagger_post_knowledge_execute.png)
 
 #### Response
 
-![GET /history](docs/images/swagger_post_knowledge_response.png)
+![GET /knowledge](docs/images/swagger_post_knowledge_response.png)
 
 #### Response suggest
 
-![GET /history](docs/images/swagger_post_knowledge_response.png)
+![GET /knowledge](docs/images/swagger_post_knowledge_response.png)
 
 ## Pruebas
 
