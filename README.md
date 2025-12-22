@@ -257,6 +257,58 @@ Permite agregar nuevas preguntas y respuestas a la base de conocimiento en memor
 }
 ```
 
+## Documentación interactiva (Swagger UI)
+
+La API expone documentacion automatica mediante **Swagger UI**, lo que permite explorar y probar los endpoints de forma interactiva.
+
+la documentacion esta disponible en:
+http://127.0.0.1:8000/docs
+
+### Ejemplo: POST /suggest
+
+Permite enviar una consulta y obtener una sugerencia basada en la base de conocimiento.
+
+#### Execute
+
+![POST /suggest](docs/images/swagger_post_suggest_execute.png)
+
+#### Response
+
+![POST /suggest](docs/images/swagger_post_suggest_responses.png)
+
+### Pregunta salida de los parametros
+
+#### Execute
+
+![POST /suggest](docs/images/swagger_post_suggest_incorrect_execute.png)
+
+#### Response
+
+![POST /suggest](docs/images/swagger_post_suggest_incorrect_responses.png)
+
+### Ejemplo: GET /history
+
+Devuelve el historial completo de consultas procesadas durante la ejecucion.
+
+![GET /history](docs/images/swagger_get_history.png)
+
+### Ejemplo: POST /knowledge
+
+Permite agregar dinamicamente nuevas preguntas y respuestas a la base de conocimiento en memoria.
+El conocimiento agregado puede ser utilizado inmediatamente por el endpoint **/suggest**.
+
+#### Execute
+
+![GET /history](docs/images/swagger_post_knowledge_execute.png)
+
+#### Response
+
+![GET /history](docs/images/swagger_post_knowledge_response.png)
+
+#### Response suggest
+
+![GET /history](docs/images/swagger_post_knowledge_response.png)
+
 ## Pruebas
 
 Ejecutar:

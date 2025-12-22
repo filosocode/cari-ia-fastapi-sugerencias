@@ -28,4 +28,4 @@ class BaseConocimiento:
         return None
 
     def agregar(self, pregunta, respuesta):
-        self._conocimiento.append({"pregunta": pregunta, "repsuesta": respuesta})
+        self._conocimiento.append({"pregunta": pregunta, "respuesta": respuesta})
