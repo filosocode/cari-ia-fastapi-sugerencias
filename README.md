@@ -2,7 +2,7 @@
 
 ## Resumen
 
-**Cari IA** es una **API REST** desarrollada con **FastApi** que permite a asesores de atencion al cliente recibir **sugerencias automaticas** basadas en una base de preguntas frecuentes mientras responden consultas de usuarios.
+**Cari AI** es una **API REST** desarrollada con **FastApi** que permite a asesores de atencion al cliente recibir **sugerencias automaticas** basadas en una base de preguntas frecuentes mientras responden consultas de usuarios.
 
 El sistema recibe una consulta en lenguaje natural y devuelve una sugerencia relevante, utilizando una logica de similitud de texto simple.
 La solucion esta diseñada como una **prueba tecnica funcional**, priorizando claridad, correcta arquitectura y cumplimiento estricto de los requerimientos establecidos.
@@ -26,7 +26,8 @@ El objetivo de esta prueba tecnica es construir un sistema ligero que asista al 
 
 - API REST desarrollada con **FastApi**.
 - Endpoint `POST /suggest` para generar sugerencias a partir de una consulta del usuario.
-- Endpoint `GET /history` para consultar el historial de preguntas y respuestas.generadas
+- Endpoint `GET /history` para consultar el historial de preguntas y respuestas.generadas.
+- Endpoint `POST /knowledge` para agregar dinámicamente nuevas preguntas y respuestas a la base de conocimiento en memoria.
 - Base de conocimiento predefinida en memoria como estructura de datos en Python.
 - Logica basica de similitud de texto para encontrar la pregunta mas cercana.
 - Persistencia temporal del historial de consultas en memoria.
