@@ -13,7 +13,7 @@ class ServicioSugerencias:
 
         coincidencias = get_close_matches(consulta, preguntas, n=1, cutoff=0.6)
         if not coincidencias:
-            return "No se encontro una repsuesta adecuada para la pregunta."
+            return "No se encontro una respuesta adecuada para la pregunta."
 
         pregunta_encontrada = coincidencias[0]
         respuesta = self.base_conocimiento.obtener_respuestas(pregunta_encontrada)
